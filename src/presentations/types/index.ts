@@ -41,6 +41,7 @@ export type Instance = {
   permission: InstancePermission
   region?: Region
   ownerId?: string
+  groupId?: string
   userNum?: number
 }
 
@@ -53,11 +54,12 @@ export type Favorite = {
 
 export type User = {
   id: string
-  username: string
+  username?: string
   displayName: string
-  currentAvatarImageUrl: string
-  currentAvatarThumbnailImageUrl: string
-  profilePicOverride: string
+  currentAvatarImageUrl: string | null
+  iconUrl?: string | null
+  currentAvatarThumbnailImageUrl?: string | null
+  profilePicOverride?: string | null
 }
 
 export type Friend = User & {

@@ -9,11 +9,12 @@ import { SpinnerComponent } from '../../../../../../../../presentational/Spinner
 // TODO: Userに関する似た型がいろいろな箇所に出てくるのどうにかならんか
 type User = {
   id: string
-  username: string
+  username?: string
   displayName: string
-  currentAvatarImageUrl: string
-  currentAvatarThumbnailImageUrl: string
-  profilePicOverride: string
+  currentAvatarImageUrl: string | null
+  iconUrl?: string | null
+  currentAvatarThumbnailImageUrl?: string | null
+  profilePicOverride?: string | null
 }
 
 type Props = {

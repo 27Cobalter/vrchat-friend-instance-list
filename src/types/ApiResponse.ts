@@ -2,13 +2,20 @@ import { FavoriteTag, FavoriteType, InstanceLocation } from './'
 
 export type UserApiResponse = {
   id: string
-  username: string
+  username?: string
   displayName: string
-  currentAvatarImageUrl: string
-  currentAvatarThumbnailImageUrl: string
-  profilePicOverride: string
+  currentAvatarImageUrl: string | null
+  currentAvatarThumbnailImageUrl?: string | null
+  iconUrl?: string | null
+  profilePicOverride?: string | null
   location: InstanceLocation
   travelingToLocation?: InstanceLocation
+}
+
+export type GroupApiResponse = {
+  id: string
+  name: string
+  iconUrl: string | null
 }
 
 export type WorldApiResponse = {

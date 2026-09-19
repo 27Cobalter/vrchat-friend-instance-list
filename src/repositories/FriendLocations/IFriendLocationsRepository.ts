@@ -9,11 +9,12 @@ export type FriendLocation = {
 
 export type Friend = {
   id: string
-  username: string
+  username?: string
   displayName: string
-  currentAvatarImageUrl: string
-  currentAvatarThumbnailImageUrl: string
-  profilePicOverride: string
+  currentAvatarImageUrl: string | null
+  iconUrl?: string | null
+  currentAvatarThumbnailImageUrl?: string | null
+  profilePicOverride?: string | null
   location: InstanceLocation
   canJoin: boolean
 }
