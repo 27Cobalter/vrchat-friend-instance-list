@@ -14,6 +14,7 @@ import {
 } from '../libs/VRChatApi/IVRChatApi'
 import {
   FavoriteApiResponse,
+  GroupApiResponse,
   InstanceApiResponse,
   UserApiResponse,
   WorldApiResponse,
@@ -83,6 +84,10 @@ export class MockVRChatApi implements IVRChatApi {
     }
 
     return instance
+  }
+
+  async getGroup(params: GetUserParams): Promise<GroupApiResponse> {
+    throw new Error('not implemented')
   }
 
   async inviteMe(params: InviteMeParams): Promise<void> {}

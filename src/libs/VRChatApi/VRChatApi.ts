@@ -12,6 +12,7 @@ import {
 } from './IVRChatApi'
 import {
   FavoriteApiResponse,
+  GroupApiResponse,
   InstanceApiResponse,
   UserApiResponse,
   WorldApiResponse,
@@ -124,6 +125,14 @@ export class VRChatApi implements IVRChatApi {
 
     // TODO: Networkから取得したデータのバリデーションして型アサーション外す
     return response as UserApiResponse
+  }
+
+  async getGroup(params: GetUserParams): Promise<GroupApiResponse> {
+    const response = await this._network
+      .get(VrcApiUrl.getFetchGroupUrl(params.id))
+      .catch((error) => this.commonErrorHandle(error))
+
+    return response as GroupApiResponse
   }
 
   async getWorld(params: GetWorldParams): Promise<WorldApiResponse> {

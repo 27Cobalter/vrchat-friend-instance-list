@@ -24,6 +24,10 @@
   &.public {
     background-color: rgba(var(--yellowColor), 0.8);
   }
+
+  &.group {
+    background-color: rgba(var(--greenColor), 0.8);
+  }
 }
 
 .region {

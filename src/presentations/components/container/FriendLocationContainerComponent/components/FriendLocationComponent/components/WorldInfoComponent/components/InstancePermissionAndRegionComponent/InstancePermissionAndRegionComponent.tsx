@@ -20,6 +20,10 @@ export const InstancePermissionAndRegionComponent = ({
       [styles.public]: permission === InstancePermissions.Public,
       [styles.friends]: permission === InstancePermissions.Friends,
       [styles.friendPlus]: permission === InstancePermissions.FriendPlus,
+      [styles.group]:
+        permission === InstancePermissions.GroupPublic ||
+        permission === InstancePermissions.GroupPlus ||
+        permission === InstancePermissions.GroupMembers,
     },
   ])
   return (

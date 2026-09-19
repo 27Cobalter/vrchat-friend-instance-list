@@ -14,6 +14,7 @@ import { Instance } from '../../presentations/types'
 import { parseLocation } from '../../shame/parseLocation'
 import { getInstancePermissionFromLocation } from '../../shame/getInstancePermissionFromLocation'
 import { getOwnerIdFromLocation } from '../../shame/getOwnerIdFromLocation'
+import { getGroupIdFromLocation } from '../../shame/getGroupIdFromLocation'
 import { getRegionFromLocation } from '../../shame/getRegionFromLocation'
 import { logger } from '../../factory/logger'
 import { uniqWith } from '../../libs/Utils'
@@ -110,12 +111,14 @@ export class VRChatApiFriendLocationsRepository
       } else {
         const { worldId } = parseLocation(location)
         const ownerId = getOwnerIdFromLocation(location)
+        const groupId = getGroupIdFromLocation(location)
 
         const instance: Instance = {
           id: location,
           permission,
           worldId,
           ownerId,
+          groupId,
           region: getRegionFromLocation(location),
         }
         return {

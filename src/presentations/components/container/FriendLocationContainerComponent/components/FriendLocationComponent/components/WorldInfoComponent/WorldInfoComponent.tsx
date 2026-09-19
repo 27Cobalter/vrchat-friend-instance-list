@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { SpinnerComponent } from '../../../../../../presentational/SpinnerComponent/SpinnerComponent'
 import { InstanceForFriendLocationComponent } from '../../../../FriendLocationContainerComponent'
 import { InstanceOwnerDialogComponent } from './components/InstanceOwnerDialogComponent/InstanceOwnerDialogComponent'
+import { InstanceGroupDialogComponent } from './components/InstanceGroupDialogComponent/InstanceGroupDialogComponent'
 
 type Props = {
   instance: InstanceForFriendLocationComponent
@@ -31,6 +32,7 @@ export const WorldInfoComponent = ({
   const joinDialog = useVisibilityManager(false)
   const watchDialog = useVisibilityManager(false)
   const ownerDialog = useVisibilityManager(false)
+  const groupDialog = useVisibilityManager(false)
 
   const [isUpdatingInstanceUserNum, setIsUpdatingInstanceUserNum] = useState(
     false
@@ -76,12 +78,16 @@ export const WorldInfoComponent = ({
         <span className={styles.current}>{currentUserNumString}/</span>
         <span className={styles.capacity}>{world.hardCapacity}</span>
       </div>
-      {instance.ownerId === undefined ? (
-        <div className={styles.worldName}>{world.name}</div>
-      ) : (
+      {instance.groupId !== undefined ? (
+        <button onClick={groupDialog.show} className={styles.worldName}>
+          {world.name}
+        </button>
+      ) : instance.ownerId !== undefined ? (
         <button onClick={ownerDialog.show} className={styles.worldName}>
           {world.name}
         </button>
+      ) : (
+        <div className={styles.worldName}>{world.name}</div>
       )}
       <div className={styles.instanceButtonArea}>
         <div className={styles.instanceButtonGroup}>
@@ -144,6 +150,13 @@ export const WorldInfoComponent = ({
           userId={instance.ownerId}
           isVisible={ownerDialog.isVisible}
           hide={ownerDialog.hide}
+        />
+      )}
+      {instance.groupId !== undefined && (
+        <InstanceGroupDialogComponent
+          groupId={instance.groupId}
+          isVisible={groupDialog.isVisible}
+          hide={groupDialog.hide}
         />
       )}
     </div>

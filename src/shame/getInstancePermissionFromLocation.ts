@@ -41,13 +41,23 @@ export const getInstancePermissionFromLocation: (
       : InstancePermissions.Invite
   }
 
-  const instanceIdIsPublie = instanceId.includes('public')
+  if (instanceId.includes('group(')) {
+    if (instanceId.includes('groupAccessType(plus)')) {
+      return InstancePermissions.GroupPlus
+    }
+    if (instanceId.includes('groupAccessType(members)')) {
+      return InstancePermissions.GroupMembers
+    }
+    return InstancePermissions.GroupPublic
+  }
+
+  const instanceIdIsPublic = instanceId.includes('public')
   const instanceIdNotIncludeChilda = !instanceId.includes('~')
   const instanceIdHasJustIdAndRegion =
     instanceId.split('~').length === 2 &&
     instanceId.split('~')[1].includes('region')
   if (
-    instanceIdIsPublie ||
+    instanceIdIsPublic ||
     instanceIdNotIncludeChilda ||
     instanceIdHasJustIdAndRegion
   ) {

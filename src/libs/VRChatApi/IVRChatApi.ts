@@ -1,5 +1,6 @@
 import {
   FavoriteApiResponse,
+  GroupApiResponse,
   InstanceApiResponse,
   UserApiResponse,
   WorldApiResponse,
@@ -70,6 +71,8 @@ export interface IVRChatApi {
   deleteFavorite(params: DeleteFavoriteParams): Promise<void>
 
   getUser(params: GetUserParams): Promise<UserApiResponse>
+
+  getGroup(params: GetUserParams): Promise<GroupApiResponse>
 
   getWorld(params: GetWorldParams): Promise<WorldApiResponse>
 
