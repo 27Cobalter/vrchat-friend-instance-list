@@ -1,4 +1,32 @@
-# vrchat-friend-instance-list
+# vrchat-friend-instance-list (27Cobalter カスタム版)
+
+> **これは [ryouEin/vrchat-friend-instance-list](https://github.com/ryouEin/vrchat-friend-instance-list) の個人カスタムフォークです。**
+
+## カスタム内容
+
+- **VRChat API変更対応** — `iconUrl` フィールド追加・`profilePicOverride` 等のoptional化
+- **白画面修正** — ErrorBoundaryの再スロー問題とアイコン取得クラッシュを修正
+- **グループインスタンス対応** — Group/GroupPlus/GroupMembersのパーミッション表示、ワールド名クリックでグループ情報ダイアログ表示
+- **Windows向けビルド設定** — `cross-env` によるWindowsでのビルド対応
+
+## インストール（Chrome拡張）
+
+[Releases](https://github.com/27Cobalter/vrchat-friend-instance-list/releases) から最新の `zip` をダウンロードして解凍し、Chrome の `chrome://extensions` でデベロッパーモードをオンにして「パッケージ化されていない拡張機能を読み込む」から解凍したフォルダを選択。
+
+## ビルド方法
+
+Node.js 16.13.0 が必要です（[nvm](https://github.com/nvm-sh/nvm) / [nvm-windows](https://github.com/coreybutler/nvm-windows) 推奨）。
+
+```bash
+nvm install 16.13.0
+nvm use 16.13.0
+npm install --legacy-peer-deps
+npm run build
+```
+
+`build/` フォルダが生成されます。Chrome の `chrome://extensions` でデベロッパーモードをオンにして「パッケージ化されていない拡張機能を読み込む」から `build/` を選択してください。
+
+---
 
 [Firefoxアドオン最新版ダウンロード](https://github.com/ryouEin/vrchat-friend-instance-list/releases/latest/download/vrchat_friend_instance_list.xpi)
 
