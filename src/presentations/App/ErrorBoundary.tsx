@@ -68,7 +68,11 @@ export class ErrorBoundary extends React.Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     logger.log('component did catch')
-    this.errorHandler(error)
+    try {
+      this.errorHandler(error)
+    } catch (e) {
+      logger.error(e as Error)
+    }
   }
 
   render() {
