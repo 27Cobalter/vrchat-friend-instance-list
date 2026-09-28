@@ -3,6 +3,7 @@ export const Colors = {
   PaleBlack: 'paleBlack',
   TrueBlack: 'trueBlack',
   Green: 'green',
+  Purple: 'purple',
   Blue: 'blue',
   Red: 'red',
   Yellow: 'yellow',

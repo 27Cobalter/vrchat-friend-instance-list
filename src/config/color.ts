@@ -8,6 +8,8 @@ const trueBlackColor = '0, 0, 0'
 
 const greenColor = '26, 188, 156'
 
+const purpleColor = '155, 89, 182'
+
 const blueColor = '29, 161, 243'
 
 const redColor = '224, 36, 94'
@@ -72,6 +74,8 @@ export function getRGBCSSVariableValue(
       return trueBlackColor
     case Colors.Green:
       return greenColor
+    case Colors.Purple:
+      return purpleColor
     case Colors.Blue:
       return blueColor
     case Colors.Red:

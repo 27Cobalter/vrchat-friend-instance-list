@@ -27,6 +27,10 @@ const selectItems = [
     label: 'オレンジ',
     value: Colors.Orange,
   },
+  {
+    label: 'パープル',
+    value: Colors.Purple,
+  },
 ]
 
 type Props = {
