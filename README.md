@@ -6,7 +6,9 @@
 
 - **VRChat API変更対応** — `iconUrl` フィールド追加・`profilePicOverride` 等のoptional化
 - **白画面修正** — ErrorBoundaryの再スロー問題とアイコン取得クラッシュを修正
-- **グループインスタンス対応** — Group/GroupPlus/GroupMembersのパーミッション表示、ワールド名クリックでグループ情報ダイアログ表示
+- **グループインスタンス対応** — Group/GroupPlus/GroupMembersのパーミッション表示、ワールド名クリックでグループ情報ダイアログ表示（バッジは紫）
+- **VRChat公式サイトで開く** — JOINダイアログにインスタンスの公式ページを新しいタブで開くボタンを追加
+- **テーマカラーにパープル追加**
 - **Windows向けビルド設定** — `cross-env` によるWindowsでのビルド対応
 
 ## インストール（Chrome拡張）
