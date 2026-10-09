@@ -32,9 +32,9 @@ export const InstancePermissions = {
   FriendPlus: 'friend+',
   Invite: 'invite',
   InvitePlus: 'invite+',
-  GroupPublic: 'group_public',
-  GroupPlus: 'group_plus',
-  GroupMembers: 'group_members',
+  GroupPublic: 'group',
+  GroupPlus: 'group+',
+  GroupMembers: 'group members',
   Offline: 'offline',
   Unknown: 'unknown',
 } as const

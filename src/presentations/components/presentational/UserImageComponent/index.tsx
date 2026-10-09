@@ -6,12 +6,11 @@ type Props = {
   user: User
 }
 export const UserImageComponent = ({ user, className = '' }: Props) => {
-  const [failed, setFailed] = useState(false)
-
   const url =
     user.profilePicOverride || user.iconUrl || user.currentAvatarThumbnailImageUrl || ''
+  const [failedUrl, setFailedUrl] = useState<string>()
 
-  if (!url || failed) {
+  if (!url || failedUrl === url) {
     return (
       <svg
         className={className}
@@ -30,7 +29,7 @@ export const UserImageComponent = ({ user, className = '' }: Props) => {
       className={className}
       src={url}
       alt=""
-      onError={() => setFailed(true)}
+      onError={() => setFailedUrl(url)}
     />
   )
 }

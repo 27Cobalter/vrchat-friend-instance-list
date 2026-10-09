@@ -12,15 +12,19 @@ type Props = {
   hide: () => void
 }
 export const InstanceGroupDialogComponent = (props: Props) => {
-  const [group, setGroup] = useState<GroupApiResponse | undefined>(undefined)
+  const [group, setGroup] = useState<GroupApiResponse | null | undefined>(undefined)
 
   useEffect(() => {
-    ;(async () => {
-      if (props.isVisible) {
-        const result = await vrchatApi.getGroup({ id: props.groupId })
-        setGroup(result)
-      }
-    })()
+    if (!props.isVisible) return
+    let cancelled = false
+    setGroup(undefined)
+    vrchatApi
+      .getGroup({ id: props.groupId })
+      .then((result) => !cancelled && setGroup(result))
+      .catch(() => !cancelled && setGroup(null))
+    return () => {
+      cancelled = true
+    }
   }, [props.groupId, props.isVisible])
 
   return (
@@ -29,7 +33,9 @@ export const InstanceGroupDialogComponent = (props: Props) => {
       title="グループ"
       contentSlot={
         <>
-          {group !== undefined ? (
+          {group === null ? (
+            <div>グループ情報を取得できませんでした</div>
+          ) : group !== undefined ? (
             <div className={styles.user}>
               {group.iconUrl && (
                 <img
