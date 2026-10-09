@@ -10,6 +10,12 @@ const joinToInstance = (instanceId: string) => {
   window.location.href = `vrchat://launch?id=${instanceId}`
 }
 
+const openOnWebsite = (instanceId: string) => {
+  const [worldId, ...rest] = instanceId.split(':')
+  const params = new URLSearchParams({ worldId, instanceId: rest.join(':') })
+  window.open(`https://vrchat.com/home/launch?${params}`, '_blank', 'noopener')
+}
+
 type Props = {
   instance: Instance
   isVisible: boolean
@@ -52,12 +58,25 @@ export const JoinDialogComponent = (props: Props) => {
               VRChatを新しく再起動し、インスタンスにJOINする
             </p>
           </div>
-          <div>
+          <div className="u-mb20">
             <ButtonComponent size="large" isFull onClick={onClickInviteMe}>
               <span>INVITE ME</span>
             </ButtonComponent>
             <p className={styles.note}>
               自分自身にインスタンスへのInviteを送信する
+            </p>
+          </div>
+          <div>
+            <ButtonComponent
+              size="large"
+              isFull
+              color="gray"
+              onClick={() => openOnWebsite(props.instance.id)}
+            >
+              <span>VRChat公式サイトで開く</span>
+            </ButtonComponent>
+            <p className={styles.note}>
+              VRChat公式サイトのインスタンスページを新しいタブで開く
             </p>
           </div>
         </>
