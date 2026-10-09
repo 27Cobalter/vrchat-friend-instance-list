@@ -24,6 +24,13 @@ npm install --legacy-peer-deps
 npm run build
 ```
 
+[Volta](https://volta.sh/) を使う場合は、プロジェクトに設定を書き込まずに Node 16 で実行できます。
+
+```bash
+volta run --node 16.13.0 npm install --legacy-peer-deps
+volta run --node 16.13.0 npm run build
+```
+
 `build/` フォルダが生成されます。Chrome の `chrome://extensions` でデベロッパーモードをオンにして「パッケージ化されていない拡張機能を読み込む」から `build/` を選択してください。
 
 ---
