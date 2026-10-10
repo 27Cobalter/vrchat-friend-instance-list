@@ -29,6 +29,7 @@ export type WorldApiResponse = {
 export type InstanceApiResponse = {
   location: InstanceLocation
   n_users: number
+  userCount?: number
   capacity: number
 }
 

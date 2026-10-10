@@ -25,15 +25,16 @@ export const useRegularWatchingInstanceCheck = (
     ) => {
       // TODO: ここらへん整理
       const apiResponse = await instancesRepository.fetchInstance(instanceId)
+      const userNum = apiResponse.userCount ?? apiResponse.n_users
       dispatch(
         addInstanceUserNum({
           instanceId,
-          userNum: apiResponse.n_users,
+          userNum,
         })
       )
       const hardCapacity =
         apiResponse.capacity === 1 ? 1 : apiResponse.capacity * 2
-      const freeSpaceNum = hardCapacity - apiResponse.n_users
+      const freeSpaceNum = hardCapacity - userNum
       if (freeSpaceNum >= notifyFreeSpaceNum) {
         notify({
           text: 'インスタンスに空きが出来ました。',

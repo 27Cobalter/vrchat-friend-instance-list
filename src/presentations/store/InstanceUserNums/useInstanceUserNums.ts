@@ -23,7 +23,7 @@ export const useInstanceUserNums = (
       dispatch(
         addInstanceUserNum({
           instanceId: response.location,
-          userNum: response.n_users,
+          userNum: response.userCount ?? response.n_users,
         })
       )
     },
