@@ -9,6 +9,9 @@
 - **グループインスタンス対応** — Group/GroupPlus/GroupMembersのパーミッション表示、ワールド名クリックでグループ情報ダイアログ表示（バッジは紫）
 - **VRChat公式サイトで開く** — JOINダイアログにインスタンスの公式ページを新しいタブで開くボタンを追加
 - **テーマカラーにパープル追加**
+- **INVITE ME 修正** — VRChat APIのOriginチェックで403になる問題を、拡張からのPOSTのみOriginを書き換えて回避（Chrome / Firefox 113+）
+- **インスタンス人数の修正** — `n_users` が0を返すことがあるため `userCount` を優先して表示・空き通知に使用
+- **管理ページのアイコン** — `chrome://extensions` に表示する48pxアイコンを追加
 - **Windows向けビルド設定** — `cross-env` によるWindowsでのビルド対応
 
 ## インストール（Chrome拡張）
