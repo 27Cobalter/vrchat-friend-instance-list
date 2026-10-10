@@ -3,7 +3,7 @@
   "name": "VRChat Friend Instance List",
   "description": "Tool for VRChat. Show instances exist your friends.",
   "version": "4.2.4",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "declarativeNetRequestWithHostAccess"],
   "host_permissions": ["https://vrchat.com/", "https://www.vrchat.com/"],
   "action": {
     "default_icon": {
